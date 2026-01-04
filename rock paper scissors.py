@@ -20,20 +20,24 @@ label_result = tk.Label(window, text="Result: ", bg="grey", fg="black", font=("C
 label_result.pack(pady=7)
 label = tk.Label(window, text="Click to start! ⬇", bg="lightblue", fg="black", font=("Calibri", 16))
 label.pack(pady=7)
+comp_label = tk.Label(window, text=f"Computer chose: ", bg="lightgrey", fg="black", font=("Calibri", 15))
+comp_label.pack(pady=7)
 
 ## Making the button functions
 def button_click_rock():
     global user
-    label.config(text=f"you clicked the rock button")
+    label.config(text=f"you clicked the rock button🪨")
     user = "rock"
+    comp_label.config(text=f"Computer chose: {computer_choice}")
     determine_winner()
     create_reset_button()
 
 
 def button_click_paper():
     global user
-    label.config(text=f"you clicked the paper button")
+    label.config(text=f"you clicked the paper button📃")
     user = "paper"
+    comp_label.config(text = f"Computer chose: {computer_choice}")
     determine_winner()
     create_reset_button()
 
@@ -41,18 +45,19 @@ def button_click_paper():
 
 def button_click_scissors():
     global user
-    label.config(text=f"you clicked the scissors button")
+    label.config(text=f"you clicked the scissors button✂️")
     user = "scissors"
+    comp_label.config(text = f"Computer chose: {computer_choice}")
     determine_winner()
     create_reset_button()
 
 # Making the buttons
-rock_button = tk.Button(window, text="rock", bg="lightgrey", fg="black", command=button_click_rock, font=("Calibri", 15))
-rock_button.place(relx=0.15, y=125, width=100, height=50)
-paper_button = tk.Button(window, text="paper", bg="lightgrey", fg="white", command=button_click_paper, font=("Calibri", 15))
-paper_button.place(relx=0.4, y=125, width=100, height=50)
-scissors_button = tk.Button(window, text="scissors", bg="lightgrey", fg="grey", command=button_click_scissors, font=("Calibri", 15))
-scissors_button.place(relx=0.65, y=125, width=100, height=50)
+rock_button = tk.Button(window, text="rock🪨", bg="lightgrey", fg="black", command=button_click_rock, font=("Calibri", 15))
+rock_button.place(relx=0.15, y=145, width=100, height=50)
+paper_button = tk.Button(window, text="paper📄", bg="lightgrey", fg="white", command=button_click_paper, font=("Calibri", 15))
+paper_button.place(relx=0.4, y=145, width=100, height=50)
+scissors_button = tk.Button(window, text="      scissors✂️", bg="lightgrey", fg="grey", command=button_click_scissors, font=("Calibri", 15))
+scissors_button.place(relx=0.65, y=145, width=100, height=50)
 
 
 
@@ -68,6 +73,7 @@ def reset_game():
     global scissors_button
     global label
     global label_result
+    global comp_label
 
     rock_button.destroy()
     paper_button.destroy()
@@ -76,15 +82,16 @@ def reset_game():
     computer_choice = choices[randnum]
 
     # remaking buttons
-    rock_button = tk.Button(window, text="rock", bg="lightgrey", fg="black", command=button_click_rock, font=("Calibri", 15))
-    rock_button.place(relx=0.15, y=125, width=100, height=50)
-    paper_button = tk.Button(window, text="paper", bg="lightgrey", fg="white", command=button_click_paper, font=("Calibri", 15))
-    paper_button.place(relx=0.4, y=125, width=100, height=50)
-    scissors_button = tk.Button(window, text="scissors", bg="lightgrey", fg="grey", command=button_click_scissors, font=("Calibri", 15))
-    scissors_button.place(relx=0.65, y=125, width=100, height=50)
+    rock_button = tk.Button(window, text="rock🪨", bg="lightgrey", fg="black", command=button_click_rock, font=("Calibri", 15))
+    rock_button.place(relx=0.15, y=145, width=100, height=50)
+    paper_button = tk.Button(window, text="paper📄", bg="lightgrey", fg="white", command=button_click_paper, font=("Calibri", 15))
+    paper_button.place(relx=0.4, y=145, width=100, height=50)
+    scissors_button = tk.Button(window, text="      scissors✂️", bg="lightgrey", fg="grey", command=button_click_scissors, font=("Calibri", 15))
+    scissors_button.place(relx=0.65, y=145, width=100, height=50)
 
     label_result.config(text="Result: ", bg="grey", fg="black", font=("Calibri", 17))
     label.config(text="Click to start! ⬇", bg="lightblue", fg="black", font=("Calibri", 16))
+    comp_label.config(text="Computer chose: ", bg="lightgrey", fg="black", font=("Calibri", 15))
 
     global reset_button
     reset_button.destroy()
@@ -92,7 +99,7 @@ def reset_game():
 
 def create_reset_button():
     global reset_button
-    reset_button = tk.Button(window, text="Reset Game", bg="lightgrey", fg="black", command=reset_game, width=10, height=3, font=("Calibri", 10))
+    reset_button = tk.Button(window, text="Reset Game", bg="lightgrey", fg="black", command=reset_game, width=10, height=2, font=("Calibri", 10))
     reset_button.place(relx=0.8, y=10)
     
 
