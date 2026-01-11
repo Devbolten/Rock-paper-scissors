@@ -1,0 +1,1 @@
+In this code i am learning to use labels, buttons and other general things part of the tkinter module to make GUIs in python. I made a simple rock paper scissors game to help me get used to using this module and maybe create more advanced programs in the future
